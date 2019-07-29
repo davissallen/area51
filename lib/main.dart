@@ -13,6 +13,7 @@ void main() async {
   Area51Game area51Game = Area51Game(spriteImage: image[0]);
   runApp(MaterialApp(
     title: 'Area 51 Game',
+    debugShowCheckedModeBanner: false,
     home: Scaffold(
       body: GameWrapper(area51Game),
     ),
