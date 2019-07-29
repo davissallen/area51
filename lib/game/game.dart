@@ -5,6 +5,7 @@ import 'package:area51/game/Horizon/horizon.dart';
 import 'package:area51/game/collision/collision_utils.dart';
 import 'package:area51/game/game_config.dart';
 import 'package:area51/game/game_over/game_over.dart';
+import 'package:area51/game/score/score.dart';
 import 'package:area51/game/hero/config.dart';
 import 'package:area51/game/hero/hero.dart';
 
@@ -13,6 +14,7 @@ enum Area51GameStatus { playing, waiting, gameOver }
 class Area51Game extends BaseGame {
   Hero hero;
   Horizon horizon;
+  ScorePanel scorePanel;
   GameOverPanel gameOverPanel;
   Area51GameStatus status = Area51GameStatus.waiting;
 
@@ -22,9 +24,10 @@ class Area51Game extends BaseGame {
   Area51Game({Image spriteImage}) {
     hero = new Hero(spriteImage);
     horizon = new Horizon(spriteImage);
+    scorePanel = new ScorePanel(spriteImage);
     gameOverPanel = new GameOverPanel(spriteImage);
 
-    this..add(horizon)..add(hero)..add(gameOverPanel);
+    this..add(horizon)..add(hero)..add(scorePanel)..add(gameOverPanel);
   }
 
   void onTap() {
